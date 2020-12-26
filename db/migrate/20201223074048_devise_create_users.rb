@@ -11,9 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.text :profile,              null: false
       t.text :occupation,           null: false
       t.text :position,             null: false
-      # ⬆︎default: ""はつけない
-      # occupation=所属
-      # position=役職
+  
 
 
       ## Recoverable

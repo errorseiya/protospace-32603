@@ -12,18 +12,3 @@ class CreateComments < ActiveRecord::Migration[6.0]
     end
   end
 end
-
-
-# コメントのテキスト（text型、カラム名はtext）
-
-## comments テーブル
-
-# | Column     | Type       | Options           |
-# | ---------- | ---------- | ----------------- |
-# | text       | text       | null: false       |
-# | user       | references | foreign_key: true |
-# | prototype  | references | foreign_key: true |
-
-# ### Association
-# - belongs_to :user
-# - belongs_to :prototype

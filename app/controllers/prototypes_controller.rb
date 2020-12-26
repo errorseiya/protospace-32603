@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show, :edit, :update, :destroy]
-  before_action :edit_Identification, only: :edit
+  before_action :Identification_to_index, only: [:edit, :destroy, :update]
   before_action :authenticate_user!, except: [:index, :show]
   
   
@@ -41,6 +41,8 @@ class PrototypesController < ApplicationController
   def destroy
     if @prototype.destroy
       redirect_to root_path
+    else
+      redirect_to root_path
     end
   end
 
@@ -54,8 +56,8 @@ class PrototypesController < ApplicationController
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
   end
 
-  def edit_Identification
-    unless current_user.id == @prototype.user.id
+  def Identification_to_index
+    unless current_user == @prototype.user
       redirect_to action: :index
     end
   end
